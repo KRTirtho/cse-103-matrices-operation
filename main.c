@@ -111,16 +111,16 @@ void matrices_multiplication() {
 
   int** result_matrix = (int**)malloc(matrix_1_rows * sizeof(int*));
 
+  /**
+   * How it works?
+   * It's an expensive operation with 3 level deep loop with O(n^3) complexity.
+   * Basically, we're going through each row(i) of the first matrix and each column(j)
+   * of the second matrix and then we're going through first matrix's column and
+   * second matrix's row to multiply and add the result to the resulting matrix.
+   */
   for (int i = 0; i < matrix_1_rows; i++) {
     result_matrix[i] = (int*)malloc(matrix_2_cols * sizeof(int));
     for (int j = 0; j < matrix_2_cols; j++) {
-      /**
-       * How it works?
-       * We are multiplying the (i)th row of first matrix with the (j)th column
-       * of second matrix. So, we are iterating through the columns of first
-       * matrix and rows of second matrix and multiplying the corresponding
-       * elements and adding them to get the result.
-       */
       result_matrix[i][j] = 0;
       for (int k = 0; k < matrix_1_cols; k++) {
         result_matrix[i][j] += matrix_1[i][k] * matrix_2[k][j];
