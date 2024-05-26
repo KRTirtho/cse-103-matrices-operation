@@ -22,8 +22,7 @@ void print_matrix(int** matrix, int row, int cols) {
 
 int* get_matrix_size(char* matrix_name) {
   int rows, cols;
-  printf("Enter the number of rows and columns for %s matrix(row col): ",
-         matrix_name);
+  printf("Rows and columns for %s matrix(row col): ", matrix_name);
   scanf("%d%d", &rows, &cols);
 
   int* matrix_size = (int*)malloc(2 * sizeof(int));
@@ -40,9 +39,9 @@ int* get_matrix_size(char* matrix_name) {
 }
 
 int** get_matrix(int row, int col) {
-  int** matrix = malloc(row * sizeof(int*));
+  int** matrix = (int**)malloc(row * sizeof(int*));
   for (int i = 0; i < row; i++) {
-    matrix[i] = malloc(col * sizeof(int));
+    matrix[i] = (int*)malloc(col * sizeof(int));
     for (int j = 0; j < col; j++) {
       // printf("Enter the element at position (%d, %d): ", i, j);
       // scanf("%d", &matrix[i][j]);
@@ -55,7 +54,7 @@ int** get_matrix(int row, int col) {
 }
 
 void matrices_arithmetic(int sign) {
-  int* matrix_size = get_matrix_size("");
+  int* matrix_size = get_matrix_size("both");
 
   int rows = matrix_size[0];
   int cols = matrix_size[1];
@@ -69,10 +68,10 @@ void matrices_arithmetic(int sign) {
   printf("Matrix 2:\n");
   print_matrix(matrix_2, rows, cols);
 
-  int** result_matrix = malloc(rows * sizeof(int*));
+  int** result_matrix = (int**)malloc(rows * sizeof(int*));
 
   for (int i = 0; i < rows; i++) {
-    result_matrix[i] = malloc(cols * sizeof(int));
+    result_matrix[i] = (int*)malloc(cols * sizeof(int));
     for (int j = 0; j < cols; j++) {
       result_matrix[i][j] = matrix_1[i][j] + (matrix_2[i][j] * sign);
     }
@@ -110,10 +109,10 @@ void matrices_multiplication() {
   printf("Matrix 2:\n");
   print_matrix(matrix_2, matrix_2_rows, matrix_2_cols);
 
-  int** result_matrix = malloc(matrix_1_rows * sizeof(int*));
+  int** result_matrix = (int**)malloc(matrix_1_rows * sizeof(int*));
 
   for (int i = 0; i < matrix_1_rows; i++) {
-    result_matrix[i] = malloc(matrix_2_cols * sizeof(int));
+    result_matrix[i] = (int*)malloc(matrix_2_cols * sizeof(int));
     for (int j = 0; j < matrix_2_cols; j++) {
       /**
        * How it works?
@@ -150,10 +149,10 @@ void matrix_transpose() {
   printf("Matrix:\n");
   print_matrix(matrix, rows, cols);
 
-  int** result_matrix = malloc(cols * sizeof(int*));
+  int** result_matrix = (int**)malloc(cols * sizeof(int*));
 
   for (int i = 0; i < cols; i++) {
-    result_matrix[i] = malloc(rows * sizeof(int));
+    result_matrix[i] = (int*)malloc(rows * sizeof(int));
     for (int j = 0; j < rows; j++) {
       result_matrix[i][j] = matrix[j][i];
     }

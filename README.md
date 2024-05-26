@@ -1,6 +1,6 @@
 ## Matrix Operations
 
-CSE103 Project:
+CSE-103 Project:
 
 Write a C program which can do the following operations on matrices in a function and display the result
 into the display window.
