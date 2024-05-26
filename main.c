@@ -174,7 +174,7 @@ int main() {
   enum Operation op;
 
   printf("Enter the operation you want to perform:\n");
-  printf("1. Plus, 2. Minus, 3. Multiply, 4. Transpose\n");
+  printf("1. Addition, 2. Subtraction, 3. Multiplication, 4. Transpose\n");
   scanf("%d", &op);
 
   switch (op) {
